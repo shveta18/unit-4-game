@@ -32,90 +32,98 @@
 
     <script type="text/javascript">
 
-
-
-
         $(document).ready(function () {
+            
+            var glitteryGame = {
+                wins: 0,
+                losses: 0,
+                sumtotal: 0,
+                red: 0,
+                yellow: 0,
+                blue: 0,
+                green: 0,
 
-            var wins = 0;
-            var losses = 0;
-            var sumtotal = 0;
-            var red = 0;
-            var yellow = 0;
-            var blue = 0;
-            var green = 0;
+                checkScore: function () {
+                    if (this.sumtotal === this.compNumber) {
+                        this.wins++;
+                        $("#result").html("You win!");
+                        $("#wins").html(this.wins);
+                        console.log("You won!");
+                        this.sumtotal = 0;
+                        this.randomize();
+                    }
 
+                    else if (this.sumtotal > this.compNumber) {
+                        this.losses++;
+                        $("#result").html("You loose!");
+                        $("#losses").html(this.losses);
+                        console.log("You loose!");
+                        this.sumtotal = 0;
+                        this.randomize();
+                    }
+                },
 
-            function checkScore() {
-                if (sumtotal === compNumber) {
-                    wins++;
-                    $("#result").html("You win!");
-                    $("#wins").html(wins);
-                    console.log("You won!");
-                    sumtotal = 0;
-                    randomize();
+                randomize: function () {
+                    this.compNumber = Math.floor(Math.random() * 120) + 19;
+                    console.log("Computer number: " + this.compNumber);
+                    $("#newNumber").html(this.compNumber);
+                    this.red = Math.floor(Math.random() * 12) + 1;
+                    $("redgemvalue").html(this.red);
+                    this.yellow = Math.floor(Math.random() * 12) + 1;
+                    this.blue = Math.floor(Math.random() * 12) + 1;
+                    this.green = Math.floor(Math.random() * 12) + 1;
+                    //console log values of each gem 
+                    console.log("red: " + this.red);
+                    console.log("yellow: " + this.yellow);
+                    console.log("blue: " + this.blue);
+                    console.log("green: " + this.green);
                 }
-
-                else if (sumtotal > compNumber) {
-                    losses++;
-                    $("#result").html("You loose!");
-                    $("#losses").html(losses);
-                    console.log("You loose!");
-                    sumtotal = 0;
-                    randomize();
-                }
-
             };
 
+            glitteryGame.randomize();
 
+            clicky("red", red);
+            clicky("green", green);
+            clicky("red", red);
+            clicky("red", red);
 
-            function randomize() {
-                compNumber = Math.floor(Math.random() * 120) + 19;
-                console.log("Computer number: " + compNumber);
-                $("#newNumber").html(compNumber);
-                red = Math.floor(Math.random() * 12) + 1;
-                yellow = Math.floor(Math.random() * 12) + 1;
-                blue = Math.floor(Math.random() * 12) + 1;
-                green = Math.floor(Math.random() * 12) + 1;
-                //console log values of each gem 
-                console.log("red: " + red);
-                console.log("yellow: " + yellow);
-                console.log("blue: " + blue);
-                console.log("green: " + green);
-
-            };
-            randomize();
+            function clicky(gemColor) {
+                $("#" + gemColor).on("click", function(){
+                    var val = $("#" + gemColor + "value").html;
+                    glitteryGame.sumtotal = glitteryGame.sumtotal + val;
+                    console.log(glitteryGame.sumtotal);
+                    $("#tally").html(glitteryGame.sumtotal);
+                    glitteryGame.checkScore();
+                });
+            }
 
             $("#redgem").on("click", function () {
-                sumtotal = sumtotal + red;
-                console.log(sumtotal);
-                $("#tally").html(sumtotal);
-                checkScore();
+                glitteryGame.sumtotal = glitteryGame.sumtotal + glitteryGame.red;
+                console.log(glitteryGame.sumtotal);
+                $("#tally").html(glitteryGame.sumtotal);
+                glitteryGame.checkScore();
             });
 
             $("#yellowgem").on("click", function () {
-                sumtotal = sumtotal + yellow;
-                console.log(sumtotal);
-                $("#tally").html(sumtotal);
-                checkScore();
+                glitteryGame.sumtotal = glitteryGame.sumtotal + glitteryGame.yellow;
+                console.log(glitteryGame.sumtotal);
+                $("#tally").html(glitteryGame.sumtotal);
+                glitteryGame.checkScore();
             });
 
             $("#bluegem").on("click", function () {
-                sumtotal = sumtotal + green;
-                console.log(sumtotal);
-                $("#tally").html(sumtotal);
-                checkScore();
+                glitteryGame.sumtotal = glitteryGame.sumtotal + glitteryGame.green;
+                console.log(glitteryGame.sumtotal);
+                $("#tally").html(glitteryGame.sumtotal);
+                glitteryGame.checkScore();
             });
 
             $("#greengem").on("click", function () {
-                sumtotal = sumtotal + blue;
-                console.log(sumtotal);
-                $("#tally").html(sumtotal);
-                checkScore();
+                glitteryGame.sumtotal = glitteryGame.sumtotal + glitteryGame.blue;
+                console.log(glitteryGame.sumtotal);
+                $("#tally").html(glitteryGame.sumtotal);
+                glitteryGame.checkScore();
             });
-
-
-
         }
 
         );
