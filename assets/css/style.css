@@ -20,5 +20,14 @@
     height: 150px;
 }
 
+#instructions {
+    background-color: aquamarine;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
+body {
+    width: 90%;
+
+
+}
 

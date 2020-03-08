@@ -10,13 +10,14 @@
     <title>Crystal Game</title>
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="assets/javascript/game.js"></script>
 </head>
 
 <body>
 
-    <div id="insructions">Click gemstones to total the displayed number.</div>
-    <div id="newNumber">Match your score to: </div>
-    <div id="tally"></div>
+    <div id="instructions">Instructions:Click gemstones to total the displayed number.</div>
+    <div>Match your score to: <span id="newNumber"></span></div>
+    <div>Current Tally: <span id="tally"></span></div>
     <div id="gemClick">
         <button id="redgem">red</button>
         <button id="yellowgem">yellow</button>
@@ -24,103 +25,11 @@
         <button id="greengem">green</button>
     </div>
     <div id="currentScore">
-        <span id="result"></span>
-        Wins: <span id="wins"></span>
-        Losses: <span id="losses"></span>
+        <div>Wins: <span id="wins"></span></div>
+        <div>Losses: <span id="losses"></span></div>
+        <div><span id="result"></span></div>
     </div>
-
-
-    <script type="text/javascript">
-
-
-
-
-        $(document).ready(function () {
-
-            var wins = 0;
-            var losses = 0;
-            var sumtotal = 0;
-            var red = 0;
-            var yellow = 0;
-            var blue = 0;
-            var green = 0;
-
-
-            function checkScore() {
-                if (sumtotal === compNumber) {
-                    wins++;
-                    $("#result").html("You win!");
-                    $("#wins").html(wins);
-                    console.log("You won!");
-                    sumtotal = 0;
-                    randomize();
-                }
-
-                else if (sumtotal > compNumber) {
-                    losses++;
-                    $("#result").html("You loose!");
-                    $("#losses").html(losses);
-                    console.log("You loose!");
-                    sumtotal = 0;
-                    randomize();
-                }
-
-            };
-
-
-
-            function randomize() {
-                compNumber = Math.floor(Math.random() * 120) + 19;
-                console.log("Computer number: " + compNumber);
-                $("#newNumber").html(compNumber);
-                red = Math.floor(Math.random() * 12) + 1;
-                yellow = Math.floor(Math.random() * 12) + 1;
-                blue = Math.floor(Math.random() * 12) + 1;
-                green = Math.floor(Math.random() * 12) + 1;
-                //console log values of each gem 
-                console.log("red: " + red);
-                console.log("yellow: " + yellow);
-                console.log("blue: " + blue);
-                console.log("green: " + green);
-
-            };
-            randomize();
-
-            $("#redgem").on("click", function () {
-                sumtotal = sumtotal + red;
-                console.log(sumtotal);
-                $("#tally").html(sumtotal);
-                checkScore();
-            });
-
-            $("#yellowgem").on("click", function () {
-                sumtotal = sumtotal + yellow;
-                console.log(sumtotal);
-                $("#tally").html(sumtotal);
-                checkScore();
-            });
-
-            $("#bluegem").on("click", function () {
-                sumtotal = sumtotal + green;
-                console.log(sumtotal);
-                $("#tally").html(sumtotal);
-                checkScore();
-            });
-
-            $("#greengem").on("click", function () {
-                sumtotal = sumtotal + blue;
-                console.log(sumtotal);
-                $("#tally").html(sumtotal);
-                checkScore();
-            });
-
-
-
-        }
-
-        );
-
-    </script>
 </body>
+
 
 </html>
