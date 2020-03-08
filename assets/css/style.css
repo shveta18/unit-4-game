@@ -1,0 +1,24 @@
+#redgem {
+    background-image: url("../images/red.jpg");
+    width: 120px; 
+    height: 150px;
+}
+
+#yellowgem {
+    background-image: url("../images/yellow.png");
+    width: 120px; 
+    height: 150px;
+}
+#bluegem {
+    background-image: url("../images/blue.jpeg");
+    width: 120px; 
+    height: 150px;
+}
+#greengem {
+    background-image: url("../images/green.jpeg");
+    width: 120px; 
+    height: 150px;
+}
+
+
+

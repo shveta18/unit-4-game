@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+			  src="https://code.jquery.com/jquery-3.4.1.js"
+			  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+              crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">         
+    <title>Crystal Game</title>
+</head>
+<body>
+    
+    <div id ="insructions">Click gemstones to total the displayed number.</div>
+    <div id ="newNumber">Match your score to: </div>
+    <div id ="tally"></div>
+    <div id ="gemClick">
+        <button id="redgem">red</button>
+        <button id="yellowgem">yellow</button>
+        <button id="bluegem">blue</button>
+        <button id="greengem">green</button>
+    </div>
+    <div id ="currentScore"></div>
+
+
+    <script>
+    var wins = 0;
+    var losses = 0;
+    var sumtotal = "";
+
+    compNumber = Math.floor(Math.random() * 120) + 19;
+    $("#newNumber").html(compNumber);
+    red = Math.floor(Math.random() * 12) + 1;
+    yellow = Math.floor(Math.random() * 12) + 1;
+    blue = Math.floor(Math.random() * 12) + 1;
+    green = Math.floor(Math.random() * 12) + 1;
+    //console log values of each gem 
+    console.log(red);
+    console.log(yellow);
+    console.log(blue);
+    console.log(green);
+
+    /* $(document).ready(function() {
+        $("#red-click").on("click", function() {
+            sumtotal = sumtotal + red;
+            //if (sumtotal===) */
+
+    // need to be able to call the value associated with the button using"this"
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+    
+</body>
+</html>
